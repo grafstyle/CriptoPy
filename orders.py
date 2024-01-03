@@ -7,9 +7,12 @@ from decouple import config
 api_key = config('API_Key')
 api_secret = config('Secret_Key')
 client = Client(api_key, api_secret)
+
 #price = client.get_symbol_ticker(symbol="ETHUSDT")
+
 price = client.get_symbol_ticker(symbol="BTCUSDT")
 print(price)
+
 
 asset="BTCUSDT"
 start="2023.1.1"
@@ -23,3 +26,4 @@ df.index=pd.to_datetime(df.index,unit="ms")
 df=df.astype("float")
 print(df)
 mpl.plot(df, type="candle", volume=True, mav=7)
+
